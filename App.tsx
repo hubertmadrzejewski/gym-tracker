@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StatusBar } from "expo-status-bar";
+import { Button, StyleSheet, Text, View } from "react-native";
+import { ThemeProvider, useTheme } from "_providers/index";
+import { Theme } from "_providers/ThemeContext";
 
-export default function App() {
+const AppContent = () => {
+  const { theme, setThemeMode } = useTheme();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <View style={styles(theme).container}>
+        <Text style={{ color: theme.text }}>
+          Open up App.tsx to start working on your app!
+        </Text>
+        <StatusBar style="auto" />
+      </View>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Button title="Light Theme" onPress={() => setThemeMode("light")} />
+        <Button title="Dark Theme" onPress={() => setThemeMode("dark")} />
+        <Button title="System Default" onPress={() => setThemeMode("system")} />
+      </View>
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
+}
+
+const styles = (theme: Theme) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: theme.background,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+  });
