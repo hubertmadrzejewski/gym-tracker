@@ -1,8 +1,7 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View } from "react-native";
-import { ThemeProvider, useTheme } from "_providers/index";
-import { Theme } from "_providers/ThemeContext";
+import { Theme, ThemeProvider, useTheme } from "_providers/ThemeContext";
 
 const AppContent = () => {
   const { theme, setThemeMode } = useTheme();
