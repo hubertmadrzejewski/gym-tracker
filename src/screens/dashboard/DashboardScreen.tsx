@@ -4,7 +4,7 @@ import { StatusBar } from "expo-status-bar";
 
 import { Theme, useTheme } from "_providers/ThemeContext";
 
-const Home = () => {
+const DashboardScreen = () => {
 
   const { theme, setThemeMode } = useTheme();
 
@@ -35,4 +35,4 @@ const styles = (theme: Theme) => StyleSheet.create({
   }
 })
 
-export default Home;
+export default DashboardScreen;
