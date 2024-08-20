@@ -1,42 +1,20 @@
 import React from "react";
-import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Text, View } from "react-native";
-import { Theme, ThemeProvider, useTheme } from "_providers/ThemeContext";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const AppContent = () => {
-  const { theme, setThemeMode } = useTheme();
+import Home from "_screens/Home";
+import { ThemeProvider } from "_providers/ThemeContext";
 
-  return (
-    <>
-      <View style={styles(theme).container}>
-        <Text style={{ color: theme.text }}>
-          Open up App.tsx to start working on your app!
-        </Text>
-        <StatusBar style="auto" />
-      </View>
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Button title="Light Theme" onPress={() => setThemeMode("light")} />
-        <Button title="Dark Theme" onPress={() => setThemeMode("dark")} />
-        <Button title="System Default" onPress={() => setThemeMode("system")} />
-      </View>
-    </>
-  );
-}
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <ThemeProvider>
-      <AppContent />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </ThemeProvider>
   );
 }
-
-const styles = (theme: Theme) =>
-  StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: theme.background,
-      alignItems: "center",
-      justifyContent: "center",
-    },
-  });

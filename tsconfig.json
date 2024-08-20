@@ -4,7 +4,8 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "_providers/*": ["src/providers/*"]
+      "_providers/*": ["src/providers/*"],
+      "_screens/*": ["src/screens/*"]
     }
   }
 }
