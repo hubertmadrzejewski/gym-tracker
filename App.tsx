@@ -11,7 +11,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{ headerShown: false}}>
           <Stack.Screen name="LogIn" component={LogInScreen} />
           <Stack.Screen name="Dashboard" component={DashboardScreen} />
         </Stack.Navigator>

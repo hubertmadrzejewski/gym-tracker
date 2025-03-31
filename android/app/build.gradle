@@ -109,7 +109,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.gymtracker"
+    namespace 'com.hubertmad.GymTracker'
     defaultConfig {
         applicationId 'com.hubertmad.GymTracker'
         minSdkVersion rootProject.ext.minSdkVersion
